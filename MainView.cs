@@ -2,15 +2,15 @@ namespace Tetris
 {
     public partial class MainViewForm : Form
     {
-        private const int WIDTH = 20; //Ширина игрового поля
-        private const int HEIGHT = 28; //Высота игрового поля
-        private const int CELL = 25; //Размер игровой клетки
+        private const int WIDTH = 20; //ГГЁГ°ГЁГ­Г  ГЁГЈГ°Г®ГўГ®ГЈГ® ГЇГ®Г«Гї 
+        private const int HEIGHT = 28; //Г‚Г»Г±Г®ГІГ  ГЁГЈГ°Г®ГўГ®ГЈГ® ГЇГ®Г«Гї
+        private const int CELL = 25; //ГђГ Г§Г¬ГҐГ° ГЁГЈГ°Г®ГўГ®Г© ГЄГ«ГҐГІГЄГЁ
 
-        private int[,] shape = new int[2, 4]; //Массив для хранения падающей фигуры
-        private int[,] gameField = new int[WIDTH, HEIGHT]; //Массив для хранения игрового поля
+        private int[,] shape = new int[2, 4]; //ГЊГ Г±Г±ГЁГў Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї ГЇГ Г¤Г ГѕГ№ГҐГ© ГґГЁГЈГіГ°Г»
+        private int[,] gameField = new int[WIDTH, HEIGHT]; //ГЊГ Г±Г±ГЁГў Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї ГЁГЈГ°Г®ГўГ®ГЈГ® ГЇГ®Г«Гї
 
         private Bitmap bitField = new Bitmap(CELL * (WIDTH) + 1, CELL * (HEIGHT) + 1);
-        private Graphics gameGraphics; //Для рисования игрового поля на PictureBox
+        private Graphics gameGraphics; //Г„Г«Гї Г°ГЁГ±Г®ГўГ Г­ГЁГї ГЁГЈГ°Г®ГўГ®ГЈГ® ГЇГ®Г«Гї Г­Г  PictureBox
 
         private Color GameBackgroundColor { get; set; } = Color.Black;
         private Brush FieldColor { get; set; } = new SolidBrush(Color.Green);
@@ -82,7 +82,7 @@ namespace Tetris
             {
                 GameTimer.Interval = currentGameSpeed;
             }
-            switch (random.Next(7)) //Выбираем рандомную фигуру из 7 возможных
+            switch (random.Next(7)) //Г‚Г»ГЎГЁГ°Г ГҐГ¬ Г°Г Г­Г¤Г®Г¬Г­ГіГѕ ГґГЁГЈГіГ°Гі ГЁГ§ 7 ГўГ®Г§Г¬Г®Г¦Г­Г»Гµ
             {
                 case 0:
                     shape = new int[,]
@@ -135,21 +135,21 @@ namespace Tetris
         }
         private void FillField()
         {
-            gameGraphics.Clear(GameBackgroundColor); //Очищаем игровое поле, задаем цвет
-            for (int i = 0; i < WIDTH; i++) //рисуем границы и упавшие фигуры
+            gameGraphics.Clear(GameBackgroundColor); //ГЋГ·ГЁГ№Г ГҐГ¬ ГЁГЈГ°Г®ГўГ®ГҐ ГЇГ®Г«ГҐ, Г§Г Г¤Г ГҐГ¬ Г¶ГўГҐГІ
+            for (int i = 0; i < WIDTH; i++) //Г°ГЁГ±ГіГҐГ¬ ГЈГ°Г Г­ГЁГ¶Г» ГЁ ГіГЇГ ГўГёГЁГҐ ГґГЁГЈГіГ°Г»
             {
                 for (int j = 0; j < HEIGHT; j++)
                 {
-                    if (gameField[i, j] == 1) //Если клетка поля существует
+                    if (gameField[i, j] == 1) //Г…Г±Г«ГЁ ГЄГ«ГҐГІГЄГ  ГЇГ®Г«Гї Г±ГіГ№ГҐГ±ГІГўГіГҐГІ
                     {
                         Rectangle rectangle = new Rectangle(i * CELL, j * CELL, CELL, CELL);
-                        gameGraphics.FillRectangle(FieldColor, rectangle); //Рисуем в этом месте квадратик
+                        gameGraphics.FillRectangle(FieldColor, rectangle); //ГђГЁГ±ГіГҐГ¬ Гў ГЅГІГ®Г¬ Г¬ГҐГ±ГІГҐ ГЄГўГ Г¤Г°Г ГІГЁГЄ
                         gameGraphics.DrawRectangle(Pens.Black, rectangle);
                         
                     }
                 }
             }
-            for (int i = 0; i < 4; i++) //Рисуем падающую фигуру
+            for (int i = 0; i < 4; i++) //ГђГЁГ±ГіГҐГ¬ ГЇГ Г¤Г ГѕГ№ГіГѕ ГґГЁГЈГіГ°Гі
             {
                 Rectangle rectangle = new Rectangle(shape[1, i] * CELL, shape[0, i] * CELL, CELL, CELL);
                 gameGraphics.FillRectangle(ShapeColor, rectangle);
@@ -177,20 +177,20 @@ namespace Tetris
                 case Keys.Left:
                     for (int i = 0; i < 4; i++)
                     {
-                        shape[1, i]--; //Сначала сдвигаем координаты всех кусочков фигуры на 1 влево по оси ОХ
+                        shape[1, i]--; //Г‘Г­Г Г·Г Г«Г  Г±Г¤ГўГЁГЈГ ГҐГ¬ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» ГўГ±ГҐГµ ГЄГіГ±Г®Г·ГЄГ®Гў ГґГЁГЈГіГ°Г» Г­Г  1 ГўГ«ГҐГўГ® ГЇГ® Г®Г±ГЁ ГЋГ•
                     }
-                    if (FindMistake()) //Если после этого нашлась ошибка
+                    if (FindMistake()) //Г…Г±Г«ГЁ ГЇГ®Г±Г«ГҐ ГЅГІГ®ГЈГ® Г­Г ГёГ«Г Г±Гј Г®ГёГЁГЎГЄГ 
                     {
                         for (int i = 0; i < 4; i++)
                         {
-                            shape[1, i]++; //Возвращаем фигуру на место
+                            shape[1, i]++; //Г‚Г®Г§ГўГ°Г Г№Г ГҐГ¬ ГґГЁГЈГіГ°Гі Г­Г  Г¬ГҐГ±ГІГ®
                         }
                     }
                     break;
                 case Keys.Right:
                     for (int i = 0; i < 4; i++)
                     {
-                        shape[1, i]++; //Сдвигаем координаты всех кусочков фигуры на 1 вправо 
+                        shape[1, i]++; //Г‘Г¤ГўГЁГЈГ ГҐГ¬ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» ГўГ±ГҐГµ ГЄГіГ±Г®Г·ГЄГ®Гў ГґГЁГЈГіГ°Г» Г­Г  1 ГўГЇГ°Г ГўГ® 
                     }
 
                     if (FindMistake())
@@ -203,7 +203,7 @@ namespace Tetris
                     break;
                 case Keys.Up:
                     int[,] shapeT = new int[2, 4];
-                    Array.Copy(shape, shapeT, shapeT.Length); // Создадим копию фигурки, чтобы в случае, когда после переворота на поле найдется ошибка, не переворачивать её обратно, а просто восстановить копию
+                    Array.Copy(shape, shapeT, shapeT.Length); // Г‘Г®Г§Г¤Г Г¤ГЁГ¬ ГЄГ®ГЇГЁГѕ ГґГЁГЈГіГ°ГЄГЁ, Г·ГІГ®ГЎГ» Гў Г±Г«ГіГ·Г ГҐ, ГЄГ®ГЈГ¤Г  ГЇГ®Г±Г«ГҐ ГЇГҐГ°ГҐГўГ®Г°Г®ГІГ  Г­Г  ГЇГ®Г«ГҐ Г­Г Г©Г¤ГҐГІГ±Гї Г®ГёГЁГЎГЄГ , Г­ГҐ ГЇГҐГ°ГҐГўГ®Г°Г Г·ГЁГўГ ГІГј ГҐВё Г®ГЎГ°Г ГІГ­Г®, Г  ГЇГ°Г®Г±ГІГ® ГўГ®Г±Г±ГІГ Г­Г®ГўГЁГІГј ГЄГ®ГЇГЁГѕ
                     int maxX = 0;
                     int maxY = 0;
                     for (int i = 0; i < 4; i++)
@@ -216,14 +216,14 @@ namespace Tetris
                         {
                             maxX = shape[1, i];
                         }
-                    } //Найдем максимальные координаты значения фигуры по Х и по Y
+                    } //ГЌГ Г©Г¤ГҐГ¬ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г»ГҐ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» Г§Г­Г Г·ГҐГ­ГЁГї ГґГЁГЈГіГ°Г» ГЇГ® Г• ГЁ ГЇГ® Y
 
                     for (int i = 0; i < 4; i++)
                     {
                         int temp = shape[0, i];
                         shape[0, i] = maxY - (maxX - shape[1, i]) - 1;
                         shape[1, i] = maxX - (3 - (maxY - temp)) + 1;
-                    } // Перевернем фигуру
+                    } // ГЏГҐГ°ГҐГўГҐГ°Г­ГҐГ¬ ГґГЁГЈГіГ°Гі
 
                     if (FindMistake())
                     {
@@ -254,7 +254,7 @@ namespace Tetris
 
             for (int i = 0; i < 4; i++)
             {
-                shape[0, i]++;//Сместить фигуру вниз
+                shape[0, i]++;//Г‘Г¬ГҐГ±ГІГЁГІГј ГґГЁГЈГіГ°Гі ГўГ­ГЁГ§
             }
 
             if (FindMistake())
@@ -264,11 +264,11 @@ namespace Tetris
                     gameField[shape[1, i], --shape[0, i]]++;
                 }
                 SetShape();
-            } //Если нашлась ошибка, то перенести фигуру на 1 клетку вверх, сохранить и создать новую фигуру
+            } //Г…Г±Г«ГЁ Г­Г ГёГ«Г Г±Гј Г®ГёГЁГЎГЄГ , ГІГ® ГЇГҐГ°ГҐГ­ГҐГ±ГІГЁ ГґГЁГЈГіГ°Гі Г­Г  1 ГЄГ«ГҐГІГЄГі ГўГўГҐГ°Гµ, Г±Г®ГµГ°Г Г­ГЁГІГј ГЁ Г±Г®Г§Г¤Г ГІГј Г­Г®ГўГіГѕ ГґГЁГЈГіГ°Гі
 
             for (int i = HEIGHT - 2; i > 2; i--)
             {
-                var cross = (from t in Enumerable.Range(0, gameField.GetLength(0)).Select(j => gameField[j, i]).ToArray() where t == 1 select t).Count(); // Количество заполненных полей в ряду
+                var cross = (from t in Enumerable.Range(0, gameField.GetLength(0)).Select(j => gameField[j, i]).ToArray() where t == 1 select t).Count(); // ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г§Г ГЇГ®Г«Г­ГҐГ­Г­Г»Гµ ГЇГ®Г«ГҐГ© Гў Г°ГїГ¤Гі
                 if (cross == WIDTH)
                 {
                     for (int k = i; k > 1; k--)
@@ -286,11 +286,11 @@ namespace Tetris
                     FieldColor = new SolidBrush(Color.FromArgb(random.Next(10, 256), random.Next(10, 256), random.Next(10, 256)));
                     
                 }           
-            } //Проверка на заполненность рядом, если нашлись ряды, в которых все клетки заполнены, сместить все ряды, которые находятся выше убранной линии, на 1 вниз
+            } //ГЏГ°Г®ГўГҐГ°ГЄГ  Г­Г  Г§Г ГЇГ®Г«Г­ГҐГ­Г­Г®Г±ГІГј Г°ГїГ¤Г®Г¬, ГҐГ±Г«ГЁ Г­Г ГёГ«ГЁГ±Гј Г°ГїГ¤Г», Гў ГЄГ®ГІГ®Г°Г»Гµ ГўГ±ГҐ ГЄГ«ГҐГІГЄГЁ Г§Г ГЇГ®Г«Г­ГҐГ­Г», Г±Г¬ГҐГ±ГІГЁГІГј ГўГ±ГҐ Г°ГїГ¤Г», ГЄГ®ГІГ®Г°Г»ГҐ Г­Г ГµГ®Г¤ГїГІГ±Гї ГўГ»ГёГҐ ГіГЎГ°Г Г­Г­Г®Г© Г«ГЁГ­ГЁГЁ, Г­Г  1 ГўГ­ГЁГ§
             FillField();  
         }
 
-        private void chooseBackgroundColorToolStripMenuItem_Click(object sender, EventArgs e)//Событие из меню, открывает окно с выбором цвета
+        private void chooseBackgroundColorToolStripMenuItem_Click(object sender, EventArgs e)//Г‘Г®ГЎГ»ГІГЁГҐ ГЁГ§ Г¬ГҐГ­Гѕ, Г®ГІГЄГ°Г»ГўГ ГҐГІ Г®ГЄГ­Г® Г± ГўГ»ГЎГ®Г°Г®Г¬ Г¶ГўГҐГІГ 
         {
             if (ColorPicker.ShowDialog() == DialogResult.OK)
             {
@@ -299,7 +299,7 @@ namespace Tetris
                 Properties.Settings.Default.Save();
             }
         }
-        private void SetGameSpeed() //Установка скорости игры как уровень сложности
+        private void SetGameSpeed() //Г“Г±ГІГ Г­Г®ГўГЄГ  Г±ГЄГ®Г°Г®Г±ГІГЁ ГЁГЈГ°Г» ГЄГ ГЄ ГіГ°Г®ГўГҐГ­Гј Г±Г«Г®Г¦Г­Г®Г±ГІГЁ
         {
             currentGameSpeed -= 10;
             GameTimer.Interval = currentGameSpeed;
