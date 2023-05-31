@@ -2,15 +2,15 @@ namespace Tetris
 {
     public partial class MainViewForm : Form
     {
-        private const int WIDTH = 20; //Øèðèíà èãðîâîãî ïîëÿ 
-        private const int HEIGHT = 28; //Âûñîòà èãðîâîãî ïîëÿ
-        private const int CELL = 25; //Ðàçìåð èãðîâîé êëåòêè
+        private const int WIDTH = 20; 
+        private const int HEIGHT = 28; 
+        private const int CELL = 25; 
 
-        private int[,] shape = new int[2, 4]; //Ìàññèâ äëÿ õðàíåíèÿ ïàäàþùåé ôèãóðû
-        private int[,] gameField = new int[WIDTH, HEIGHT]; //Ìàññèâ äëÿ õðàíåíèÿ èãðîâîãî ïîëÿ
+        private int[,] shape = new int[2, 4]; 
+        private int[,] gameField = new int[WIDTH, HEIGHT]; 
 
         private Bitmap bitField = new Bitmap(CELL * (WIDTH) + 1, CELL * (HEIGHT) + 1);
-        private Graphics gameGraphics; //Äëÿ ðèñîâàíèÿ èãðîâîãî ïîëÿ íà PictureBox
+        private Graphics gameGraphics;
 
         private Color GameBackgroundColor { get; set; } = Color.Black;
         private Brush FieldColor { get; set; } = new SolidBrush(Color.Green);
